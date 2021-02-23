@@ -10,55 +10,39 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+
 class TestLoginlogout():
-  def setup_method(self, method):
-    self.driver = webdriver.Chrome()
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_loginlogout(self):
-    self.driver.get("http://10.0.0.74/")
-    self.driver.set_window_size(1936, 1056)
-    self.driver.find_element(By.NAME, "login").click()
-    self.driver.find_element(By.NAME, "login").send_keys("admin")
-    self.driver.find_element(By.NAME, "password").send_keys("admin")
-    self.driver.find_element(By.NAME, "password").send_keys(Keys.ENTER)
-    element = self.driver.find_element(By.LINK_TEXT, "Список БД")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    self.driver.find_element(By.LINK_TEXT, "Список БД").click()
-    element = self.driver.find_element(By.CSS_SELECTOR, "body")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element, 0, 0).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".MuiIconButton-root:nth-child(3)")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, "body")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element, 0, 0).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".MuiIconButton-root:nth-child(2)")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, "body")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element, 0, 0).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".MuiIconButton-edgeEnd:nth-child(1)")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, "body")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element, 0, 0).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".MuiIconButton-root:nth-child(3)")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, "body")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element, 0, 0).perform()
-    self.driver.find_element(By.CSS_SELECTOR, ".MuiButtonBase-root:nth-child(3) > .MuiIconButton-label > .MuiSvgIcon-root").click()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".jss13 > .MuiButton-label")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    self.driver.find_element(By.CSS_SELECTOR, ".jss13 > .MuiButton-label").click()
-  
+    def setup_method(self, method):
+        self.driver = webdriver.Chrome()
+        self.vars = {}
+
+    def teardown_method(self, method):
+        self.driver.quit()
+
+    def test_loginlogout(self):
+        self.driver.get("http://10.0.0.74/")
+        self.driver.set_window_size(1936, 1056)
+        self.driver.find_element(By.NAME, "login").click()
+        self.driver.find_element(By.NAME, "login").send_keys("admin")
+        self.driver.find_element(By.NAME, "password").send_keys("admin")
+        self.driver.find_element(By.CSS_SELECTOR, ".MuiButtonBase-root").click()
+        element = self.driver.find_element(By.CSS_SELECTOR, ".MuiButtonBase-root:nth-child(3)")
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
+        element = self.driver.find_element(By.CSS_SELECTOR, "body")
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
+        element = self.driver.find_element(By.CSS_SELECTOR,
+                                           ".MuiButtonBase-root:nth-child(3) > .MuiIconButton-label path")
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
+        self.driver.find_element(By.CSS_SELECTOR,
+                                 ".MuiButtonBase-root:nth-child(3) > .MuiIconButton-label path").click()
+        element = self.driver.find_element(By.CSS_SELECTOR, "body")
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
+        element = self.driver.find_element(By.CSS_SELECTOR, ".jss13 > .MuiButton-label")
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
+        self.driver.find_element(By.CSS_SELECTOR, ".jss13 > .MuiButton-label").click()
+
