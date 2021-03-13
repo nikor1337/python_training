@@ -19,7 +19,7 @@ class Application:
 
     def open_home_page(self):
         driver = self.driver
-        driver.get("http://192.168.1.75/addressbook/")
+        driver.get("http://192.168.1.68/addressbook/")
 
     def destroy(self):
         driver = self.driver
