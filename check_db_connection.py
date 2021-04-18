@@ -1,11 +1,12 @@
-import mysql.connector
+from fixture.orm import ORMFixture
+from model.group import Group
 
-connection = mysql.connector.connect(host="192.168.1.69", database="addressbook", user="admin", password="admin")
+db = ORMFixture(host="192.168.1.69", name="addressbook", user="admin", password="admin")
 
 try:
-    cursor = connection.cursor()
-    cursor.execute("select * from group_list")
-    for row in cursor.fetchall():
-        print(row)
+    l = db.get_contacts_not_in_group(Group(id="149"))
+    for item in l:
+        print(item)
+    print(len(l))
 finally:
-    connection.close()
+    pass # db.destroy()
