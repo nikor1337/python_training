@@ -1,11 +1,11 @@
 {
   "web": {
-    "baseUrl":"http://192.168.1.69/addressbook/",
+    "baseUrl":"http://192.168.1.71/addressbook/",
     "username": "admin",
     "password": "secret"
   },
   "db": {
-    "host":"192.168.1.69",
+    "host":"192.168.1.71",
     "name":"addressbook",
     "user":"admin",
     "password":"admin"
