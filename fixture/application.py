@@ -1,12 +1,14 @@
-from selenium import webdriver
+from selenium import webdriver as wdr
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.contact import ContactHelper
 
 class Application:
 
+
     def __init__(self, browser, base_url):
-        if browser == "chrome": self.driver = webdriver.Chrome()
+        if browser == "chrome":
+            self.driver = webdriver.Chrome()
         elif browser == "firefox":
             self.driver = webdriver.Firefox()
         else:
