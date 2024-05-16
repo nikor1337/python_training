@@ -5,11 +5,12 @@ from fixture.contact import ContactHelper
 
 class Application:
 
-    def __init__(self, userAgent, base_url):
-        if userAgent == "Browser/Chrome":
-            self.driverMode = wdr.Chrome()
-        elif userAgent == "Browser/Firefox":
-            self.driverMode = wdr.Firefox()
+
+    def __init__(self, browser, base_url):
+        if browser == "chrome":
+            self.driver1 = webdriver.Chrome()
+        elif browser == "firefox":
+            self.driver1 = webdriver.Firefox()
         else:
             raise ValueError("Unrecognised browser %s" % browser)
         self.session = SessionHelper(self)
