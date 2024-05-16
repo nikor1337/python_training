@@ -8,9 +8,9 @@ class Application:
 
     def __init__(self, browser, base_url):
         if browser == "chrome":
-            self.driver = webdriver.Chrome()
+            self.driver1 = webdriver.Chrome()
         elif browser == "firefox":
-            self.driver = webdriver.Firefox()
+            self.driver1 = webdriver.Firefox()
         else:
             raise ValueError("Unrecognised browser %s" % browser)
         self.session = SessionHelper(self)
