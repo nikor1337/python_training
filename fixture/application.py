@@ -1,15 +1,15 @@
-from selenium import webdriver
+from selenium import webdriver as wdr
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.contact import ContactHelper
 
 class Application:
 
-    def __init__(self, browser, base_url):
-        if browser == "chrome":
-            self.driver = webdriver.Chrome()
-        elif browser == "firefox":
-            self.driver = webdriver.Firefox()
+    def __init__(self, userAgent, base_url):
+        if userAgent == "Browser/Chrome":
+            self.driverMode = wdr.Chrome()
+        elif userAgent == "Browser/Firefox":
+            self.driverMode = wdr.Firefox()
         else:
             raise ValueError("Unrecognised browser %s" % browser)
         self.session = SessionHelper(self)
